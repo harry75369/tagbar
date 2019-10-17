@@ -1175,6 +1175,9 @@ endfunction
 " fields that are always present: kind, line
 function! s:ParseTagline(part1, part2, typeinfo, fileinfo) abort
     let basic_info  = split(a:part1, '\t')
+    if len(basic_info) < 2
+        return
+    endif
     let tagname  = basic_info[0]
     let filename = basic_info[1]
 
